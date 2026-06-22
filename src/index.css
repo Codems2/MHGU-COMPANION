@@ -441,6 +441,53 @@ a:hover {
   font-size: 0.9rem;
   line-height: 1.5;
 }
+.phase-gear {
+  margin: 10px 0;
+  padding: 12px;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+.phase-gear-title {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--gold-dim);
+}
+.phase-gear-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
+  margin-top: 8px;
+}
+.gear-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.gear-type {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+}
+.gear-item strong {
+  color: var(--text);
+  font-size: 0.9rem;
+}
+.gear-skills {
+  font-size: 0.8rem;
+  color: var(--blue);
+}
+.gear-note {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  line-height: 1.35;
+}
+
 .objectives {
   list-style: none;
   margin: 6px 0 0;

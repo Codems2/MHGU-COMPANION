@@ -186,6 +186,21 @@ function ProgressionTab({ build }) {
               </div>
             </div>
             <p className="phase-body">{phase.body}</p>
+            {phase.gear?.length > 0 && (
+              <div className="phase-gear">
+                <span className="phase-gear-title">Equipo en esta fase</span>
+                <div className="phase-gear-items">
+                  {phase.gear.map((g, gi) => (
+                    <div key={gi} className="gear-item">
+                      <span className="gear-type">{g.type}</span>
+                      <strong>{g.name}</strong>
+                      {g.skills && <span className="gear-skills">🧠 {g.skills}</span>}
+                      {g.note && <span className="gear-note">{g.note}</span>}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
             <ul className="objectives">
               {phase.objectives.map((obj, oi) => {
                 const key = `${pi}-${oi}`
