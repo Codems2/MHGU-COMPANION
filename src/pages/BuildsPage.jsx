@@ -51,6 +51,14 @@ export default function BuildsPage() {
                   {b.difficulty}
                 </span>
               </div>
+              {b.weapon?.image && (
+                <img
+                  className="build-card-render"
+                  src={`${import.meta.env.BASE_URL}weapons/${b.weapon.image}`}
+                  alt={b.weapon.finalName}
+                  loading="lazy"
+                />
+              )}
               <p className="build-tagline">{b.tagline}</p>
               <div className="build-meta">
                 <span className="meta-chip">🎯 {b.rankFocus}</span>

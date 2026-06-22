@@ -245,10 +245,16 @@ function WeaponTab({ build }) {
   // El elemento puede venir en finalStats (a distancia) o en w.element (melee).
   const finalStats = { ...w.finalStats, element: w.finalStats.element ?? w.element }
   const stats = STAT_ORDER.filter((key) => finalStats[key] != null)
+  const imgSrc = w.image ? `${import.meta.env.BASE_URL}weapons/${w.image}` : null
   return (
     <div className="weapon-tab">
       <div className="final-weapon">
-        <h3>{w.finalName}</h3>
+        <div className="final-weapon-head">
+          {imgSrc && (
+            <img className="weapon-render" src={imgSrc} alt={w.finalName} loading="lazy" />
+          )}
+          <h3>{w.finalName}</h3>
+        </div>
         <div className="stat-grid">
           {stats.map((key) => (
             <Stat key={key} label={STAT_LABELS[key]} value={finalStats[key]} />

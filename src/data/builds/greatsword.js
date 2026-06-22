@@ -24,7 +24,8 @@ export const greatswordBuilds = [
       'La Placa/Esmeralda de Zinogre son materiales raros (RNG).',
     ],
     weapon: {
-      finalName: 'Despot’s Earlygrave (línea Zinogre)',
+      finalName: 'Usurper’s Storm (línea Zinogre)',
+      image: 'gs-usurpers-storm.webp',
       element: 'Sin elemento (crudo)',
       finalStats: {
         attack: 288,
@@ -88,7 +89,7 @@ export const greatswordBuilds = [
           ],
         },
         {
-          name: 'Despot’s Earlygrave',
+          name: 'Usurper’s Storm',
           rank: 'G',
           attack: 288,
           note: 'Versión final de rango G. Filo blanco con Filo +1 y 1 ranura.',
@@ -255,17 +256,17 @@ export const greatswordBuilds = [
       {
         phase: 6,
         rank: 'Rango G · final',
-        title: 'Forja Despot’s Earlygrave y pule la build',
+        title: 'Forja Usurper’s Storm y pule la build',
         body:
           'El último paso es la Esmeralda celeste de Zinogre (rara de rango G). Captura a Zinogre para mejorar la probabilidad. Con el arma final y Filo +1 tendrás filo blanco y crudo de sobra; sube toda la armadura con esferas auténticas.',
         gear: [
-          { type: 'Arma', name: 'Despot’s Earlygrave', skills: null, note: 'Arma final: crudo máximo y 1 ranura.' },
+          { type: 'Arma', name: 'Usurper’s Storm', skills: null, note: 'Arma final: crudo máximo y 1 ranura.' },
           { type: 'Armadura', name: 'Set G maximizado', skills: 'Acometida crítica, Refuerzo crítico, Punto débil, Filo +1, Concentración', note: 'Sube cada pieza con esferas de armadura auténticas.' },
         ],
         objectives: [
           'Reúne Garra dura y Córtex de Zinogre (G).',
           'Consigue 1 Esmeralda celeste de Zinogre (captura recomendada).',
-          'Forja Despot’s Earlygrave y maximiza la armadura con esferas auténticas.',
+          'Forja Usurper’s Storm y maximiza la armadura con esferas auténticas.',
         ],
         materialsFocus: ['zinogre-hardclaw', 'zinogre-cortex', 'zinogre-skymerald', 'true-armor-sphere'],
       },
@@ -294,7 +295,8 @@ export const greatswordBuilds = [
       'El fuego de Glavenus es bueno pero no destaca en monstruos resistentes a fuego.',
     ],
     weapon: {
-      finalName: 'Glavenus Buster (línea Glavenus)',
+      finalName: 'Crisped Blazer (línea Glavenus)',
+      image: 'gs-crisped-blazer.webp',
       element: 'Fuego',
       finalStats: {
         attack: 210,
@@ -324,7 +326,7 @@ export const greatswordBuilds = [
           ],
         },
         {
-          name: 'Glavenus Buster',
+          name: 'Crisped Blazer',
           rank: 'HR',
           attack: 210,
           note: 'Requiere talar la cola de Glavenus tras cortarla.',
@@ -389,12 +391,12 @@ export const greatswordBuilds = [
         body:
           'Corta la cola de Glavenus durante la caza y tálala para conseguir el material clave. Monta un set sencillo con Concentración y Ataque, que es todo lo que esta build necesita.',
         gear: [
-          { type: 'Arma', name: 'Glavenus Buster', skills: null, note: 'Filo blanco largo y daño de fuego.' },
+          { type: 'Arma', name: 'Crisped Blazer', skills: null, note: 'Filo blanco largo y daño de fuego.' },
           { type: 'Armadura', name: 'Set mixto HR', skills: 'Concentración, Ataque', note: 'Activa Concentración para cargar más rápido.' },
         ],
         objectives: [
           'Corta y tala la cola de Glavenus.',
-          'Forja Glavenus Buster.',
+          'Forja Crisped Blazer.',
           'Activa Concentración (Focus) y Ataque grande.',
         ],
         materialsFocus: ['glavenus-tail', 'monster-bone-plus', 'carbalite-ore'],

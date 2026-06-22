@@ -23,7 +23,8 @@ export const longswordBuilds = [
       'La Espada Larga puede "tropezar" a compañeros en multijugador (cuidado con la cola).',
     ],
     weapon: {
-      finalName: 'Despot’s Thunderclap (línea Zinogre)',
+      finalName: 'Usurper’s Boltslicer (línea Zinogre)',
+      image: 'ls-usurpers-boltslicer.webp',
       element: 'Trueno (secundario)',
       finalStats: {
         attack: 264,
@@ -85,7 +86,7 @@ export const longswordBuilds = [
           ],
         },
         {
-          name: 'Despot’s Thunderclap',
+          name: 'Usurper’s Boltslicer',
           rank: 'G',
           attack: 264,
           note: 'Versión final de rango G con afinidad nativa y 1 ranura.',
@@ -249,17 +250,17 @@ export const longswordBuilds = [
       {
         phase: 6,
         rank: 'Rango G · final',
-        title: 'Forja Despot’s Thunderclap',
+        title: 'Forja Usurper’s Boltslicer',
         body:
           'Cierra la build con el arma final de Zinogre. La Esmeralda celeste es rara: captura a Zinogre. Con Filo +1 tendrás filo blanco y ~70-100% de afinidad efectiva en puntos débiles. Maximiza la armadura con esferas auténticas.',
         gear: [
-          { type: 'Arma', name: 'Despot’s Thunderclap', skills: null, note: 'Arma final: afinidad nativa y 1 ranura.' },
+          { type: 'Arma', name: 'Usurper’s Boltslicer', skills: null, note: 'Arma final: afinidad nativa y 1 ranura.' },
           { type: 'Armadura', name: 'Set G maximizado', skills: 'Vista crítica +2, Punto débil, Refuerzo crítico, Filo +1', note: 'Sube cada pieza con esferas auténticas.' },
         ],
         objectives: [
           'Reúne Garra dura y Córtex de Zinogre (G).',
           'Consigue 1 Esmeralda celeste de Zinogre.',
-          'Forja Despot’s Thunderclap y maximiza la armadura.',
+          'Forja Usurper’s Boltslicer y maximiza la armadura.',
         ],
         materialsFocus: ['zinogre-hardclaw', 'zinogre-cortex', 'zinogre-skymerald', 'true-armor-sphere'],
       },
