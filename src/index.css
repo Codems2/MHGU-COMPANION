@@ -138,6 +138,19 @@ a:hover {
 .weapon-icon {
   font-size: 1.8rem;
 }
+.weapon-icon-svg {
+  width: 46px;
+  height: 46px;
+  color: var(--gold);
+  display: block;
+}
+.weapon-card:hover .weapon-icon-svg {
+  color: var(--gold);
+  filter: drop-shadow(0 0 6px rgba(232, 176, 75, 0.45));
+}
+.weapon-card.disabled .weapon-icon-svg {
+  color: var(--text-dim);
+}
 .weapon-name {
   font-size: 1.15rem;
   font-weight: 600;
@@ -178,6 +191,12 @@ a:hover {
 }
 .page-head-icon {
   font-size: 2.6rem;
+}
+.page-head-icon-svg {
+  width: 52px;
+  height: 52px;
+  color: var(--gold);
+  display: block;
 }
 .page-head h1 {
   margin: 0;

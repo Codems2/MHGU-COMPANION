@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { WEAPON_TYPES } from '../data/weaponTypes.js'
 import { getBuildsForWeapon } from '../data/builds/index.js'
+import WeaponIcon from '../components/WeaponIcon.jsx'
 
 export default function HomePage() {
   return (
@@ -19,7 +20,7 @@ export default function HomePage() {
           const inner = (
             <>
               <span className="weapon-icon" aria-hidden>
-                {w.icon}
+                <WeaponIcon id={w.id} className="weapon-icon-svg" />
               </span>
               <span className="weapon-name">{w.name}</span>
               <span className="weapon-en">{w.nameEn}</span>

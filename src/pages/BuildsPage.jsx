@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
 import { getWeaponType } from '../data/weaponTypes.js'
 import { getBuildsForWeapon } from '../data/builds/index.js'
+import WeaponIcon from '../components/WeaponIcon.jsx'
 
 const difficultyClass = {
   Principiante: 'diff-beginner',
@@ -25,7 +26,9 @@ export default function BuildsPage() {
   return (
     <div className="builds-page">
       <div className="page-head">
-        <span className="page-head-icon" aria-hidden>{weapon.icon}</span>
+        <span className="page-head-icon" aria-hidden>
+          <WeaponIcon id={weapon.id} className="page-head-icon-svg" />
+        </span>
         <div>
           <h1>{weapon.name}</h1>
           <p className="muted">{weapon.short}</p>
