@@ -210,19 +210,45 @@ function ProgressionTab({ build }) {
   )
 }
 
+// Etiquetas y orden de las estadísticas del arma. Solo se muestran las que
+// existan en finalStats, de modo que sirve tanto para cuerpo a cuerpo (filo)
+// como para armas a distancia (munición, recarga, retroceso, desviación).
+const STAT_LABELS = {
+  attack: 'Ataque',
+  affinity: 'Afinidad',
+  sharpness: 'Filo',
+  element: 'Elemento',
+  slots: 'Ranuras',
+  reload: 'Recarga',
+  recoil: 'Retroceso',
+  deviation: 'Desviación',
+}
+const STAT_ORDER = ['attack', 'affinity', 'sharpness', 'element', 'slots', 'reload', 'recoil', 'deviation']
+
 function WeaponTab({ build }) {
   const w = build.weapon
+  // El elemento puede venir en finalStats (a distancia) o en w.element (melee).
+  const finalStats = { ...w.finalStats, element: w.finalStats.element ?? w.element }
+  const stats = STAT_ORDER.filter((key) => finalStats[key] != null)
   return (
     <div className="weapon-tab">
       <div className="final-weapon">
         <h3>{w.finalName}</h3>
         <div className="stat-grid">
-          <Stat label="Ataque" value={w.finalStats.attack} />
-          <Stat label="Afinidad" value={w.finalStats.affinity} />
-          <Stat label="Filo" value={w.finalStats.sharpness} />
-          <Stat label="Elemento" value={w.element} />
-          <Stat label="Ranuras" value={w.finalStats.slots} />
+          {stats.map((key) => (
+            <Stat key={key} label={STAT_LABELS[key]} value={finalStats[key]} />
+          ))}
         </div>
+        {w.ammo?.length > 0 && (
+          <div className="ammo-block">
+            <span className="stat-label">Munición clave</span>
+            <ul className="ammo-list">
+              {w.ammo.map((a, i) => (
+                <li key={i}>🎯 {a}</li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
 
       <h3 className="section-title">Árbol de mejora</h3>

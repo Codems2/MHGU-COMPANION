@@ -118,7 +118,7 @@ export const WEAPON_TYPES = [
     icon: '🪖',
     category: 'ranged',
     short: 'Máxima potencia a distancia con munición pesada.',
-    available: false,
+    available: true,
   },
   {
     id: 'bow',

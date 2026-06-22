@@ -306,6 +306,74 @@ export const MATERIALS = {
     ],
   },
 
+  // ─── Tigrex (build de Perforación / Ballesta Pesada) ─────────────────
+  'tigrex-scale-plus': {
+    id: 'tigrex-scale-plus',
+    name: 'Escama+ de Tigrex',
+    nameEn: 'Tigrex Scale+',
+    rank: 'HR',
+    monster: 'Tigrex',
+    sources: [
+      { method: 'Talar', monster: 'Tigrex', rate: '34%' },
+      { method: 'Recompensa', monster: 'Tigrex', rate: '26%' },
+    ],
+  },
+  'tigrex-shell': {
+    id: 'tigrex-shell',
+    name: 'Caparazón de Tigrex',
+    nameEn: 'Tigrex Shell',
+    rank: 'HR',
+    monster: 'Tigrex',
+    sources: [
+      { method: 'Talar', monster: 'Tigrex', rate: '30%' },
+      { method: 'Romper parte', monster: 'Tigrex', part: 'Espalda', rate: '45%' },
+    ],
+  },
+  'tigrex-carapace': {
+    id: 'tigrex-carapace',
+    name: 'Coraza de Tigrex',
+    nameEn: 'Tigrex Carapace',
+    rank: 'G',
+    monster: 'Tigrex',
+    sources: [
+      { method: 'Talar', monster: 'Tigrex', rate: '32%' },
+      { method: 'Romper parte', monster: 'Tigrex', part: 'Espalda (G)', rate: '40%' },
+    ],
+  },
+  'tigrex-cortex': {
+    id: 'tigrex-cortex',
+    name: 'Córtex de Tigrex',
+    nameEn: 'Tigrex Cortex',
+    rank: 'G',
+    monster: 'Tigrex',
+    sources: [
+      { method: 'Talar', monster: 'Tigrex', rate: '28%' },
+      { method: 'Recompensa', monster: 'Tigrex', rate: '24%', notes: 'Misiones de rango G.' },
+    ],
+  },
+  'tigrex-hardfang': {
+    id: 'tigrex-hardfang',
+    name: 'Colmillo duro de Tigrex',
+    nameEn: 'Tigrex Hardfang',
+    rank: 'G',
+    monster: 'Tigrex',
+    sources: [
+      { method: 'Romper parte', monster: 'Tigrex', part: 'Cabeza (colmillos)', rate: '58%' },
+    ],
+  },
+  'tigrex-mantle': {
+    id: 'tigrex-mantle',
+    name: 'Mantón de Tigrex',
+    nameEn: 'Tigrex Mantle',
+    rank: 'G',
+    monster: 'Tigrex',
+    rare: true,
+    sources: [
+      { method: 'Captura', monster: 'Tigrex', rate: '12%', notes: 'Material raro G: captura recomendada.' },
+      { method: 'Talar', monster: 'Tigrex', rate: '5%' },
+    ],
+  },
+
   // ─── Materiales de armadura: Esquina/joya de Hayabusa y comunes ───────
   'kelbi-horn': {
     id: 'kelbi-horn',

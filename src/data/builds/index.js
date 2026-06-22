@@ -1,9 +1,10 @@
 import { greatswordBuilds } from './greatsword.js'
 import { longswordBuilds } from './longsword.js'
+import { heavyBowgunBuilds } from './heavybowgun.js'
 
 // Todas las builds disponibles. Para añadir un arma nueva, crea su archivo
 // (p. ej. dualBlades.js) y agrégalo aquí.
-export const ALL_BUILDS = [...greatswordBuilds, ...longswordBuilds]
+export const ALL_BUILDS = [...greatswordBuilds, ...longswordBuilds, ...heavyBowgunBuilds]
 
 export const getBuildsForWeapon = (weaponTypeId) =>
   ALL_BUILDS.filter((b) => b.weaponType === weaponTypeId)

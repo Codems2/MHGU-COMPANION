@@ -86,6 +86,50 @@ export const SKILLS = {
     effect: 'Reduce el consumo de resistencia al esquivar, correr y otras acciones.',
     points: '+10',
   },
+
+  // ─── Habilidades de armas a distancia (ballestas / arco) ──────────────
+  'pierce-up': {
+    id: 'pierce-up',
+    name: 'Munición perforante arriba',
+    nameEn: 'Pierce Up / Pierce S Up',
+    effect: 'Aumenta el daño de la munición de Perforación (Pierce S). Clave en builds de ballesta perforante.',
+    points: '+10',
+  },
+  'spread-up': {
+    id: 'spread-up',
+    name: 'Munición dispersa arriba',
+    nameEn: 'Spread Up / Spread S Up',
+    effect: 'Aumenta el daño de la munición de Dispersión (Spread S), muy fuerte a corta distancia.',
+    points: '+10',
+  },
+  'normal-up': {
+    id: 'normal-up',
+    name: 'Munición normal arriba',
+    nameEn: 'Normal Up / Normal S Up',
+    effect: 'Aumenta el daño de la munición Normal (Normal S). Útil como respaldo fiable y barato.',
+    points: '+10',
+  },
+  'recoil-down': {
+    id: 'recoil-down',
+    name: 'Retroceso reducido',
+    nameEn: 'Recoil Down',
+    effect: 'Reduce el retroceso al disparar, permitiendo encadenar disparos más rápido.',
+    points: '+10',
+  },
+  'reload-speed': {
+    id: 'reload-speed',
+    name: 'Recarga rápida',
+    nameEn: 'Reload Speed',
+    effect: 'Acelera la velocidad de recarga de munición. Más cadencia, menos tiempo expuesto.',
+    points: '+10',
+  },
+  'ammo-saver': {
+    id: 'ammo-saver',
+    name: 'Ahorro de munición',
+    nameEn: 'Ammo Saver / Bonus Shot',
+    effect: 'Probabilidad de no gastar munición al disparar. Alarga tu suministro en cacerías largas.',
+    points: '+10',
+  },
 }
 
 export const getSkill = (id) => SKILLS[id]
