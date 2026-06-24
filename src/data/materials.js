@@ -1,415 +1,258 @@
 // Catálogo central de materiales de MHGU.
-// Las builds referencian materiales por su `id`; la app genera la lista de
-// farmeo combinando estas fuentes.
 //
-// NOTA SOBRE LOS DATOS: las tasas y fuentes están basadas en datos conocidos
-// de la comunidad (Kiranico / wikis). Algunas tasas pueden variar ligeramente
-// según versión; trátalas como orientativas. ¡Contribuciones bienvenidas!
+// Cada material tiene:
+//   name    -> traducción al español (MHGU no tiene localización oficial en
+//              español, así que la traducción es nuestra, lo más natural posible)
+//   nameEn  -> nombre REAL en inglés (tal cual aparece en el juego / Kiranico),
+//              para que puedas buscarlo en wikis sin ambigüedad
+//   rank    -> 'LR' (bajo) | 'HR' (alto) | 'G' (rango G)
+//   monster -> monstruo de origen (si aplica)
+//   rare    -> material poco común (RNG alto)
+//   sources -> dónde y cómo conseguirlo
 //
-// rank: 'LR' (bajo) | 'HR' (alto) | 'G' (rango G)
-// sources[].method: 'Talar' | 'Recompensa' | 'Captura' | 'Romper parte' |
-//                    'Recolectar' | 'Minar' | 'Soborno/Otro'
+// Las TASAS son orientativas (basadas en datos de la comunidad/Kiranico) y
+// pueden variar ligeramente según versión. La PARTE a romper y el método sí
+// son fiables y es lo más útil para farmear.
 
 export const MATERIALS = {
-  // ─── Materiales genéricos / recolección ──────────────────────────────
+  // ─── Recolección / minería / huesos (genéricos) ──────────────────────
   'iron-ore': {
-    id: 'iron-ore',
-    name: 'Mena de hierro',
-    nameEn: 'Iron Ore',
-    rank: 'LR',
+    id: 'iron-ore', name: 'Mena de hierro', nameEn: 'Iron Ore', rank: 'LR',
     sources: [
-      { method: 'Minar', location: 'Bosque y colinas', notes: 'Vetas de minería (zonas 4, 6, 10).' },
-      { method: 'Soborno/Otro', location: 'Mercader', notes: 'Comprable en la tienda en LR.' },
+      { method: 'Minar', location: 'Bosque y colinas, Yermo', rate: '~45%', notes: 'Vetas azules. Comprable en la tienda en LR.' },
     ],
   },
   'earth-crystal': {
-    id: 'earth-crystal',
-    name: 'Cristal de tierra',
-    nameEn: 'Earth Crystal',
-    rank: 'LR',
-    sources: [
-      { method: 'Minar', location: 'Yermo / Volcán', notes: 'Vetas de minería abundantes.' },
-    ],
+    id: 'earth-crystal', name: 'Cristal de tierra', nameEn: 'Earth Crystal', rank: 'LR',
+    sources: [{ method: 'Minar', location: 'Yermo, Volcán', rate: '~40%', notes: 'Vetas de minería abundantes.' }],
   },
   'machalite-ore': {
-    id: 'machalite-ore',
-    name: 'Mena de macalita',
-    nameEn: 'Machalite Ore',
-    rank: 'HR',
-    sources: [
-      { method: 'Minar', location: 'Bosque y colinas / Yermo', notes: 'Vetas de minería en HR.' },
-    ],
+    id: 'machalite-ore', name: 'Mena de macalita', nameEn: 'Machalite Ore', rank: 'HR',
+    sources: [{ method: 'Minar', location: 'Bosque y colinas, Yermo', rate: '~30%', notes: 'Vetas azules en HR.' }],
   },
   'carbalite-ore': {
-    id: 'carbalite-ore',
-    name: 'Mena de carbalita',
-    nameEn: 'Carbalite Ore',
-    rank: 'HR',
-    sources: [
-      { method: 'Minar', location: 'Volcán / Cumbre helada', notes: 'Vetas de minería en HR/G.' },
-    ],
-  },
-  'fucium-ore': {
-    id: 'fucium-ore',
-    name: 'Mena de fucio',
-    nameEn: 'Fucium Ore',
-    rank: 'G',
-    sources: [
-      { method: 'Minar', location: 'Volcán (G) / Cumbre helada (G)', notes: 'Vetas de minería en rango G.' },
-    ],
-  },
-  'dragonite-ore': {
-    id: 'dragonite-ore',
-    name: 'Mena de dragonita',
-    nameEn: 'Dragonite Ore',
-    rank: 'G',
-    sources: [
-      { method: 'Minar', location: 'Volcán (G)', notes: 'Vetas de minería de rango G.' },
-    ],
-  },
-  'eltalite-ore': {
-    id: 'eltalite-ore',
-    name: 'Mena de eltalita',
-    nameEn: 'Eltalite Ore',
-    rank: 'G',
-    sources: [
-      { method: 'Minar', location: 'Cumbre helada (G) / Volcán (G)', notes: 'Mena rara de rango G.' },
-    ],
+    id: 'carbalite-ore', name: 'Mena de carbalita', nameEn: 'Carbalite Ore', rank: 'HR',
+    sources: [{ method: 'Minar', location: 'Volcán, Cumbre helada', rate: '~25%', notes: 'Vetas de HR/G.' }],
   },
   'monster-bone-s': {
-    id: 'monster-bone-s',
-    name: 'Hueso de monstruo P',
-    nameEn: 'Monster Bone S',
-    rank: 'LR',
-    sources: [
-      { method: 'Recolectar', location: 'Yermo / Pantano', notes: 'Montones de huesos.' },
-    ],
+    id: 'monster-bone-s', name: 'Hueso de monstruo P', nameEn: 'Monster Bone S', rank: 'LR',
+    sources: [{ method: 'Recolectar', location: 'Yermo, Pantano', rate: '~50%', notes: 'Montones de huesos. Comprable en LR.' }],
+  },
+  'monster-bone-m': {
+    id: 'monster-bone-m', name: 'Hueso de monstruo M', nameEn: 'Monster Bone M', rank: 'LR',
+    sources: [{ method: 'Recolectar', location: 'Yermo, Pantano', rate: '~35%', notes: 'Montones de huesos.' }],
   },
   'monster-bone-l': {
-    id: 'monster-bone-l',
-    name: 'Hueso de monstruo G',
-    nameEn: 'Monster Bone L',
-    rank: 'HR',
-    sources: [
-      { method: 'Recolectar', location: 'Yermo / Pantano', notes: 'Montones de huesos en HR.' },
-    ],
+    id: 'monster-bone-l', name: 'Hueso de monstruo G', nameEn: 'Monster Bone L', rank: 'HR',
+    sources: [{ method: 'Recolectar', location: 'Yermo, Pantano', rate: '~30%', notes: 'Montones de huesos en HR.' }],
   },
   'monster-bone-plus': {
-    id: 'monster-bone-plus',
-    name: 'Hueso de monstruo+',
-    nameEn: 'Monster Bone+',
-    rank: 'HR',
+    id: 'monster-bone-plus', name: 'Hueso de monstruo+', nameEn: 'Monster Bone+', rank: 'HR',
     sources: [
-      { method: 'Recolectar', location: 'Yermo / Pantano', notes: 'Montones de huesos (HR/G).' },
-      { method: 'Recompensa', location: 'Varias misiones HR', notes: 'Recompensa común.' },
+      { method: 'Recolectar', location: 'Yermo, Pantano', rate: '~25%', notes: 'Montones de huesos (HR/G).' },
+      { method: 'Recompensa', location: 'Muchas misiones HR', rate: '~20%', notes: 'Recompensa común.' },
     ],
   },
   'monster-hardbone': {
-    id: 'monster-hardbone',
-    name: 'Hueso duro de monstruo',
-    nameEn: 'Monster Hardbone',
-    rank: 'G',
+    id: 'monster-hardbone', name: 'Hueso duro de monstruo', nameEn: 'Monster Hardbone', rank: 'G',
     sources: [
-      { method: 'Recolectar', location: 'Yermo / Pantano (G)', notes: 'Montones de huesos en rango G.' },
-      { method: 'Recompensa', location: 'Misiones de rango G', notes: 'Recompensa frecuente.' },
+      { method: 'Recolectar', location: 'Yermo, Pantano (G)', rate: '~20%', notes: 'Montones de huesos de rango G.' },
+      { method: 'Recompensa', location: 'Misiones de rango G', rate: '~18%' },
     ],
   },
-  'ancient-bone': {
-    id: 'ancient-bone',
-    name: 'Hueso antiguo',
-    nameEn: 'Ancient Bone',
-    rank: 'HR',
-    sources: [
-      { method: 'Recolectar', location: 'Desierto / Pantano', notes: 'Montones de huesos.' },
-    ],
+  'armor-sphere': {
+    id: 'armor-sphere', name: 'Esfera de armadura', nameEn: 'Armor Sphere', rank: 'LR',
+    sources: [{ method: 'Recompensa', location: 'Misiones LR / minería', notes: 'Para subir de nivel armaduras LR.' }],
   },
-  'dragonbone-relic': {
-    id: 'dragonbone-relic',
-    name: 'Reliquia de hueso de dragón',
-    nameEn: 'Dragonbone Relic',
-    rank: 'G',
-    sources: [
-      { method: 'Recolectar', location: 'Yermo (G)', notes: 'Montones de huesos de rango G (rara).' },
-    ],
-  },
-
-  // ─── Zinogre (build de Trueno / GS y LS) ─────────────────────────────
-  'zinogre-shell': {
-    id: 'zinogre-shell',
-    name: 'Caparazón de Zinogre',
-    nameEn: 'Zinogre Shell',
-    rank: 'HR',
-    monster: 'Zinogre',
-    sources: [
-      { method: 'Talar', monster: 'Zinogre', rate: '32%', notes: 'Talado del cuerpo.' },
-      { method: 'Recompensa', monster: 'Zinogre', rate: '25%', notes: 'Recompensa de misión HR.' },
-    ],
-  },
-  'zinogre-claw': {
-    id: 'zinogre-claw',
-    name: 'Garra de Zinogre',
-    nameEn: 'Zinogre Claw',
-    rank: 'HR',
-    monster: 'Zinogre',
-    sources: [
-      { method: 'Romper parte', monster: 'Zinogre', part: 'Patas delanteras', rate: '70%', notes: 'Rompe ambas garras.' },
-      { method: 'Talar', monster: 'Zinogre', rate: '15%' },
-    ],
-  },
-  'zinogre-electrofur': {
-    id: 'zinogre-electrofur',
-    name: 'Electropelaje de Zinogre',
-    nameEn: 'Zinogre Electrofur',
-    rank: 'HR',
-    monster: 'Zinogre',
-    sources: [
-      { method: 'Romper parte', monster: 'Zinogre', part: 'Espalda', rate: '60%', notes: 'Mejor con Zinogre cargado.' },
-      { method: 'Talar', monster: 'Zinogre', rate: '20%' },
-    ],
-  },
-  'zinogre-plate': {
-    id: 'zinogre-plate',
-    name: 'Placa de Zinogre',
-    nameEn: 'Zinogre Plate',
-    rank: 'HR',
-    monster: 'Zinogre',
-    rare: true,
-    sources: [
-      { method: 'Talar', monster: 'Zinogre', rate: '4%', notes: 'Material raro: usa Suerte de saqueador.' },
-      { method: 'Captura', monster: 'Zinogre', rate: '8%', notes: 'La captura mejora la tasa.' },
-    ],
-  },
-  'zinogre-hardclaw': {
-    id: 'zinogre-hardclaw',
-    name: 'Garra dura de Zinogre',
-    nameEn: 'Zinogre Hardclaw',
-    rank: 'G',
-    monster: 'Zinogre',
-    sources: [
-      { method: 'Romper parte', monster: 'Zinogre', part: 'Patas delanteras (G)', rate: '65%' },
-      { method: 'Talar', monster: 'Zinogre', rate: '18%' },
-    ],
-  },
-  'zinogre-skymerald': {
-    id: 'zinogre-skymerald',
-    name: 'Esmeralda celeste de Zinogre',
-    nameEn: 'Zinogre Skymerald',
-    rank: 'G',
-    monster: 'Zinogre',
-    rare: true,
-    sources: [
-      { method: 'Captura', monster: 'Zinogre', rate: '15%', notes: 'Material raro G: la captura es lo mejor.' },
-      { method: 'Talar', monster: 'Zinogre', rate: '6%' },
-    ],
-  },
-  'zinogre-cortex': {
-    id: 'zinogre-cortex',
-    name: 'Córtex de Zinogre',
-    nameEn: 'Zinogre Cortex',
-    rank: 'G',
-    monster: 'Zinogre',
-    sources: [
-      { method: 'Talar', monster: 'Zinogre', rate: '30%' },
-      { method: 'Recompensa', monster: 'Zinogre', rate: '24%', notes: 'Misiones de rango G.' },
-    ],
-  },
-
-  // ─── Rathalos / Rathian (builds Raw versátiles) ──────────────────────
-  'rathalos-scale-plus': {
-    id: 'rathalos-scale-plus',
-    name: 'Escama+ de Rathalos',
-    nameEn: 'Rathalos Scale+',
-    rank: 'HR',
-    monster: 'Rathalos',
-    sources: [
-      { method: 'Talar', monster: 'Rathalos', rate: '35%' },
-      { method: 'Recompensa', monster: 'Rathalos', rate: '28%' },
-    ],
-  },
-  'rathalos-carapace': {
-    id: 'rathalos-carapace',
-    name: 'Caparazón de Rathalos',
-    nameEn: 'Rathalos Carapace',
-    rank: 'G',
-    monster: 'Rathalos',
-    sources: [
-      { method: 'Talar', monster: 'Rathalos', rate: '30%' },
-      { method: 'Romper parte', monster: 'Rathalos', part: 'Espalda/Alas', rate: '40%' },
-    ],
-  },
-  'rathalos-mantle': {
-    id: 'rathalos-mantle',
-    name: 'Mantón de Rathalos',
-    nameEn: 'Rathalos Mantle',
-    rank: 'G',
-    monster: 'Rathalos',
-    rare: true,
-    sources: [
-      { method: 'Captura', monster: 'Rathalos', rate: '10%', notes: 'Material raro: captura recomendada.' },
-      { method: 'Talar', monster: 'Rathalos', rate: '5%' },
-    ],
-  },
-  'rath-medulla': {
-    id: 'rath-medulla',
-    name: 'Médula de Rath',
-    nameEn: 'Rath Medulla',
-    rank: 'G',
-    monster: 'Rathalos / Rathian',
-    rare: true,
-    sources: [
-      { method: 'Romper parte', monster: 'Rathalos', part: 'Cabeza', rate: '12%' },
-      { method: 'Captura', monster: 'Rathalos', rate: '14%' },
-    ],
-  },
-
-  // ─── Glavenus (build Raw de fuego/filo) ──────────────────────────────
-  'glavenus-tail': {
-    id: 'glavenus-tail',
-    name: 'Cola de Glavenus',
-    nameEn: 'Glavenus Tail',
-    rank: 'HR',
-    monster: 'Glavenus',
-    sources: [
-      { method: 'Talar', monster: 'Glavenus', part: 'Cola cortada', rate: '60%', notes: 'Corta la cola y tálala.' },
-    ],
-  },
-  'glavenus-hardclaw': {
-    id: 'glavenus-hardclaw',
-    name: 'Garra dura de Glavenus',
-    nameEn: 'Glavenus Hardclaw',
-    rank: 'G',
-    monster: 'Glavenus',
-    sources: [
-      { method: 'Romper parte', monster: 'Glavenus', part: 'Patas delanteras', rate: '55%' },
-    ],
-  },
-  'glavenus-tailcase': {
-    id: 'glavenus-tailcase',
-    name: 'Vaina caudal de Glavenus',
-    nameEn: 'Glavenus Tailcase',
-    rank: 'G',
-    monster: 'Glavenus',
-    sources: [
-      { method: 'Talar', monster: 'Glavenus', part: 'Cola (G)', rate: '50%' },
-    ],
-  },
-  'glavenus-mantle': {
-    id: 'glavenus-mantle',
-    name: 'Mantón de Glavenus',
-    nameEn: 'Glavenus Mantle',
-    rank: 'G',
-    monster: 'Glavenus',
-    rare: true,
-    sources: [
-      { method: 'Captura', monster: 'Glavenus', rate: '12%', notes: 'Material raro G.' },
-      { method: 'Talar', monster: 'Glavenus', rate: '5%' },
-    ],
-  },
-
-  // ─── Tigrex (build de Perforación / Ballesta Pesada) ─────────────────
-  'tigrex-scale-plus': {
-    id: 'tigrex-scale-plus',
-    name: 'Escama+ de Tigrex',
-    nameEn: 'Tigrex Scale+',
-    rank: 'HR',
-    monster: 'Tigrex',
-    sources: [
-      { method: 'Talar', monster: 'Tigrex', rate: '34%' },
-      { method: 'Recompensa', monster: 'Tigrex', rate: '26%' },
-    ],
-  },
-  'tigrex-shell': {
-    id: 'tigrex-shell',
-    name: 'Caparazón de Tigrex',
-    nameEn: 'Tigrex Shell',
-    rank: 'HR',
-    monster: 'Tigrex',
-    sources: [
-      { method: 'Talar', monster: 'Tigrex', rate: '30%' },
-      { method: 'Romper parte', monster: 'Tigrex', part: 'Espalda', rate: '45%' },
-    ],
-  },
-  'tigrex-carapace': {
-    id: 'tigrex-carapace',
-    name: 'Coraza de Tigrex',
-    nameEn: 'Tigrex Carapace',
-    rank: 'G',
-    monster: 'Tigrex',
-    sources: [
-      { method: 'Talar', monster: 'Tigrex', rate: '32%' },
-      { method: 'Romper parte', monster: 'Tigrex', part: 'Espalda (G)', rate: '40%' },
-    ],
-  },
-  'tigrex-cortex': {
-    id: 'tigrex-cortex',
-    name: 'Córtex de Tigrex',
-    nameEn: 'Tigrex Cortex',
-    rank: 'G',
-    monster: 'Tigrex',
-    sources: [
-      { method: 'Talar', monster: 'Tigrex', rate: '28%' },
-      { method: 'Recompensa', monster: 'Tigrex', rate: '24%', notes: 'Misiones de rango G.' },
-    ],
-  },
-  'tigrex-hardfang': {
-    id: 'tigrex-hardfang',
-    name: 'Colmillo duro de Tigrex',
-    nameEn: 'Tigrex Hardfang',
-    rank: 'G',
-    monster: 'Tigrex',
-    sources: [
-      { method: 'Romper parte', monster: 'Tigrex', part: 'Cabeza (colmillos)', rate: '58%' },
-    ],
-  },
-  'tigrex-mantle': {
-    id: 'tigrex-mantle',
-    name: 'Mantón de Tigrex',
-    nameEn: 'Tigrex Mantle',
-    rank: 'G',
-    monster: 'Tigrex',
-    rare: true,
-    sources: [
-      { method: 'Captura', monster: 'Tigrex', rate: '12%', notes: 'Material raro G: captura recomendada.' },
-      { method: 'Talar', monster: 'Tigrex', rate: '5%' },
-    ],
-  },
-
-  // ─── Materiales de armadura: Esquina/joya de Hayabusa y comunes ───────
-  'kelbi-horn': {
-    id: 'kelbi-horn',
-    name: 'Cuerno de Kelbi',
-    nameEn: 'Kelbi Horn',
-    rank: 'LR',
-    sources: [
-      { method: 'Romper parte', monster: 'Kelbi', part: 'Cuerno', rate: '90%', notes: 'Monstruo pequeño herbívoro.' },
-    ],
-  },
-  'vergil-blade': {
-    id: 'vergil-blade',
-    name: 'Pluma de halcón',
-    nameEn: "Hayabusa Feather (material)",
-    rank: 'G',
-    sources: [
-      { method: 'Soborno/Otro', location: 'Evento / Tienda', notes: 'El amuleto Hayabusa se obtiene vía DLC/eventos.' },
-    ],
+  'armor-sphere-plus': {
+    id: 'armor-sphere-plus', name: 'Esfera de armadura+', nameEn: 'Armor Sphere+', rank: 'HR',
+    sources: [{ method: 'Recompensa', location: 'Misiones HR', notes: 'Para subir de nivel armaduras HR.' }],
   },
   'true-armor-sphere': {
-    id: 'true-armor-sphere',
-    name: 'Esfera de armadura auténtica',
-    nameEn: 'True Armor Sphere',
-    rank: 'G',
+    id: 'true-armor-sphere', name: 'Esfera de armadura auténtica', nameEn: 'True Armor Sphere', rank: 'G',
     sources: [
-      { method: 'Recompensa', location: 'Misiones de rango G', notes: 'Para subir de nivel armaduras G.' },
+      { method: 'Recompensa', location: 'Misiones de rango G', notes: 'Para maximizar armaduras de rango G.' },
       { method: 'Minar', location: 'Vetas de rango G', notes: 'Aparición ocasional.' },
     ],
   },
-  'armor-sphere-plus': {
-    id: 'armor-sphere-plus',
-    name: 'Esfera de armadura+',
-    nameEn: 'Armor Sphere+',
-    rank: 'HR',
+
+  // ─── Zinogre (raio) — usado por GS, LS y HBG ─────────────────────────
+  'zinogre-shell': {
+    id: 'zinogre-shell', name: 'Caparazón de Zinogre', nameEn: 'Zinogre Shell', rank: 'HR', monster: 'Zinogre',
     sources: [
-      { method: 'Recompensa', location: 'Misiones HR', notes: 'Para subir de nivel armaduras HR.' },
+      { method: 'Talar', part: 'cuerpo', rate: '~34%', notes: 'Talado del cuerpo de Zinogre (HR).' },
+      { method: 'Recompensa', rate: '~25%', notes: 'Recompensa de misión HR.' },
+    ],
+  },
+  'zinogre-horn-plus': {
+    id: 'zinogre-horn-plus', name: 'Cuerno+ de Zinogre', nameEn: 'Zinogre Horn+', rank: 'HR', monster: 'Zinogre',
+    sources: [{ method: 'Romper parte', part: 'cabeza (cuernos)', rate: '~65%', notes: 'Rompe los cuernos de la cabeza.' }],
+  },
+  'zinogre-electrofur-plus': {
+    id: 'zinogre-electrofur-plus', name: 'Electropelaje+ de Zinogre', nameEn: 'Zinogre Electrofur+', rank: 'HR', monster: 'Zinogre',
+    sources: [
+      { method: 'Romper parte', part: 'espalda', rate: '~55%', notes: 'Mejor con Zinogre "cargado" (aura azul).' },
+      { method: 'Talar', rate: '~20%' },
+    ],
+  },
+  'zinogre-plate': {
+    id: 'zinogre-plate', name: 'Placa de Zinogre', nameEn: 'Zinogre Plate', rank: 'HR', monster: 'Zinogre', rare: true,
+    sources: [
+      { method: 'Talar', rate: '~3%', notes: 'Material raro: usa Suerte de saqueador (Carving God).' },
+      { method: 'Captura', rate: '~8%', notes: 'La captura mejora la probabilidad.' },
+    ],
+  },
+  'zinogre-carapace': {
+    id: 'zinogre-carapace', name: 'Coraza de Zinogre', nameEn: 'Zinogre Carapace', rank: 'G', monster: 'Zinogre',
+    sources: [
+      { method: 'Talar', part: 'cuerpo (G)', rate: '~32%' },
+      { method: 'Recompensa', rate: '~24%', notes: 'Misiones de rango G.' },
+    ],
+  },
+  'zinogre-cortex': {
+    id: 'zinogre-cortex', name: 'Córtex de Zinogre', nameEn: 'Zinogre Cortex', rank: 'G', monster: 'Zinogre',
+    sources: [
+      { method: 'Talar', part: 'cuerpo (G)', rate: '~28%' },
+      { method: 'Recompensa', rate: '~22%' },
+    ],
+  },
+  'zinogre-hardhorn': {
+    id: 'zinogre-hardhorn', name: 'Cuerno duro de Zinogre', nameEn: 'Zinogre Hardhorn', rank: 'G', monster: 'Zinogre',
+    sources: [{ method: 'Romper parte', part: 'cabeza (cuernos, G)', rate: '~60%', notes: 'Rompe los cuernos en rango G.' }],
+  },
+  'zinogre-lash': {
+    id: 'zinogre-lash', name: 'Látigo de Zinogre', nameEn: 'Zinogre Lash', rank: 'G', monster: 'Zinogre',
+    sources: [{ method: 'Romper parte', part: 'cola', rate: '~50%', notes: 'Corta la cola y tálala.' }],
+  },
+  'zinogre-jasper': {
+    id: 'zinogre-jasper', name: 'Jaspe de Zinogre', nameEn: 'Zinogre Jasper', rank: 'G', monster: 'Zinogre', rare: true,
+    sources: [
+      { method: 'Captura', rate: '~14%', notes: 'Placa rara de rango G: la captura es lo mejor.' },
+      { method: 'Talar', rate: '~5%' },
+    ],
+  },
+  'zinogre-skymerald': {
+    id: 'zinogre-skymerald', name: 'Esmeralda celeste de Zinogre', nameEn: 'Zinogre Skymerald', rank: 'G', monster: 'Zinogre', rare: true,
+    sources: [
+      { method: 'Captura', rate: '~12%', notes: 'Gema rarísima: captura siempre que puedas.' },
+      { method: 'Romper parte', part: 'cuernos + espalda', rate: '~8%', notes: 'Romper partes sube las recompensas.' },
+    ],
+  },
+
+  // ─── Tigrex — usado por la HBG de Perforación ────────────────────────
+  'tigrex-scale-plus': {
+    id: 'tigrex-scale-plus', name: 'Escama+ de Tigrex', nameEn: 'Tigrex Scale+', rank: 'HR', monster: 'Tigrex',
+    sources: [
+      { method: 'Talar', rate: '~34%' },
+      { method: 'Recompensa', rate: '~26%' },
+    ],
+  },
+  'tigrex-shell': {
+    id: 'tigrex-shell', name: 'Caparazón de Tigrex', nameEn: 'Tigrex Shell', rank: 'HR', monster: 'Tigrex',
+    sources: [
+      { method: 'Talar', rate: '~30%' },
+      { method: 'Romper parte', part: 'espalda', rate: '~45%' },
+    ],
+  },
+  'tigrex-fang-plus': {
+    id: 'tigrex-fang-plus', name: 'Colmillo+ de Tigrex', nameEn: 'Tigrex Fang+', rank: 'HR', monster: 'Tigrex',
+    sources: [{ method: 'Romper parte', part: 'cabeza (colmillos)', rate: '~55%' }],
+  },
+  'tigrex-carapace': {
+    id: 'tigrex-carapace', name: 'Coraza de Tigrex', nameEn: 'Tigrex Carapace', rank: 'G', monster: 'Tigrex',
+    sources: [
+      { method: 'Talar', part: 'cuerpo (G)', rate: '~32%' },
+      { method: 'Romper parte', part: 'espalda (G)', rate: '~40%' },
+    ],
+  },
+  'tigrex-cortex': {
+    id: 'tigrex-cortex', name: 'Córtex de Tigrex', nameEn: 'Tigrex Cortex', rank: 'G', monster: 'Tigrex',
+    sources: [
+      { method: 'Talar', part: 'cuerpo (G)', rate: '~28%' },
+      { method: 'Recompensa', rate: '~24%' },
+    ],
+  },
+  'tigrex-hardfang': {
+    id: 'tigrex-hardfang', name: 'Colmillo duro de Tigrex', nameEn: 'Tigrex Hardfang', rank: 'G', monster: 'Tigrex',
+    sources: [{ method: 'Romper parte', part: 'cabeza (colmillos, G)', rate: '~55%' }],
+  },
+  'tigrex-mantle': {
+    id: 'tigrex-mantle', name: 'Mantón de Tigrex', nameEn: 'Tigrex Mantle', rank: 'G', monster: 'Tigrex', rare: true,
+    sources: [
+      { method: 'Captura', rate: '~12%', notes: 'Material raro G: captura recomendada.' },
+      { method: 'Talar', rate: '~5%' },
+    ],
+  },
+
+  // ─── Rathalos — armaduras (Punto débil, Vista crítica) ───────────────
+  'rathalos-scale-plus': {
+    id: 'rathalos-scale-plus', name: 'Escama+ de Rathalos', nameEn: 'Rathalos Scale+', rank: 'HR', monster: 'Rathalos',
+    sources: [
+      { method: 'Talar', rate: '~35%' },
+      { method: 'Recompensa', rate: '~28%' },
+    ],
+  },
+  'rathalos-carapace': {
+    id: 'rathalos-carapace', name: 'Coraza de Rathalos', nameEn: 'Rathalos Carapace', rank: 'G', monster: 'Rathalos',
+    sources: [
+      { method: 'Talar', rate: '~30%' },
+      { method: 'Romper parte', part: 'alas / espalda', rate: '~40%' },
+    ],
+  },
+  'rathalos-cortex': {
+    id: 'rathalos-cortex', name: 'Córtex de Rathalos', nameEn: 'Rathalos Cortex', rank: 'G', monster: 'Rathalos',
+    sources: [
+      { method: 'Talar', rate: '~26%' },
+      { method: 'Recompensa', rate: '~22%' },
+    ],
+  },
+  'rath-medulla': {
+    id: 'rath-medulla', name: 'Médula de Rath', nameEn: 'Rath Medulla', rank: 'G', monster: 'Rathalos / Rathian', rare: true,
+    sources: [
+      { method: 'Romper parte', part: 'cabeza', rate: '~12%' },
+      { method: 'Captura', rate: '~14%' },
+    ],
+  },
+  'rathalos-mantle': {
+    id: 'rathalos-mantle', name: 'Mantón de Rathalos', nameEn: 'Rathalos Mantle', rank: 'G', monster: 'Rathalos', rare: true,
+    sources: [
+      { method: 'Captura', rate: '~10%', notes: 'Material raro: captura recomendada.' },
+      { method: 'Talar', rate: '~5%' },
+    ],
+  },
+
+  // ─── Glavenus — GS de fuego y faja (Refuerzo crítico) ────────────────
+  'glavenus-tail': {
+    id: 'glavenus-tail', name: 'Cola de Glavenus', nameEn: 'Glavenus Tail', rank: 'HR', monster: 'Glavenus',
+    sources: [{ method: 'Talar', part: 'cola cortada', rate: '~60%', notes: 'Corta la cola y tálala.' }],
+  },
+  'glavenus-carapace': {
+    id: 'glavenus-carapace', name: 'Coraza de Glavenus', nameEn: 'Glavenus Carapace', rank: 'G', monster: 'Glavenus',
+    sources: [
+      { method: 'Talar', rate: '~30%' },
+      { method: 'Recompensa', rate: '~24%' },
+    ],
+  },
+  'glavenus-cortex': {
+    id: 'glavenus-cortex', name: 'Córtex de Glavenus', nameEn: 'Glavenus Cortex', rank: 'G', monster: 'Glavenus',
+    sources: [{ method: 'Talar', rate: '~26%' }, { method: 'Recompensa', rate: '~22%' }],
+  },
+  'glavenus-tailedge': {
+    id: 'glavenus-tailedge', name: 'Filo caudal de Glavenus', nameEn: 'Glavenus Tailedge', rank: 'G', monster: 'Glavenus',
+    sources: [{ method: 'Talar', part: 'cola (G)', rate: '~50%', notes: 'Corta y tala la cola en rango G.' }],
+  },
+  'glavenus-fire-orb': {
+    id: 'glavenus-fire-orb', name: 'Orbe ígneo de Glavenus', nameEn: 'Glavenus Fire Orb', rank: 'G', monster: 'Glavenus', rare: true,
+    sources: [
+      { method: 'Romper parte', part: 'cabeza/papada', rate: '~14%' },
+      { method: 'Captura', rate: '~16%' },
+    ],
+  },
+  'glavenus-pallium': {
+    id: 'glavenus-pallium', name: 'Manto de Glavenus', nameEn: 'Glavenus Pallium', rank: 'G', monster: 'Glavenus', rare: true,
+    sources: [
+      { method: 'Captura', rate: '~12%', notes: 'Material raro G.' },
+      { method: 'Talar', rate: '~5%' },
     ],
   },
 }

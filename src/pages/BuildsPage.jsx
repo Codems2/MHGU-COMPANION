@@ -65,8 +65,8 @@ export default function BuildsPage() {
                 <span className="meta-chip">🧩 {b.style}</span>
               </div>
               <ul className="build-pros">
-                {b.pros.slice(0, 2).map((p, i) => (
-                  <li key={i}>✔ {p}</li>
+                {(b.strengths || []).slice(0, 2).map((s, i) => (
+                  <li key={i}>✔ {s.title}</li>
                 ))}
               </ul>
               <span className="build-cta">Ver progresión y materiales →</span>

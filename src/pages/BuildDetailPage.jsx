@@ -53,6 +53,7 @@ export default function BuildDetailPage() {
         <div className="build-meta">
           <span className="meta-chip">⚙️ {build.difficulty}</span>
           <span className="meta-chip">🎯 {build.rankFocus}</span>
+          {build.damageType && <span className="meta-chip">⚔️ {build.damageType}</span>}
           <span className="meta-chip">🧩 {build.style}</span>
         </div>
       </header>
@@ -87,6 +88,13 @@ function OverviewTab({ build }) {
     <div className="overview">
       <p className="lead">{build.summary}</p>
 
+      {build.whyItWorks && (
+        <div className="info-block why">
+          <h3>🧠 ¿Por qué funciona esta build?</h3>
+          <p>{build.whyItWorks}</p>
+        </div>
+      )}
+
       <div className="two-col">
         <div className="info-block">
           <h3>Estilo de juego</h3>
@@ -111,22 +119,37 @@ function OverviewTab({ build }) {
 
       <div className="two-col">
         <div className="info-block pros">
-          <h3>👍 Ventajas</h3>
-          <ul>
-            {build.pros.map((p, i) => (
-              <li key={i}>{p}</li>
+          <h3>💪 Puntos fuertes</h3>
+          <ul className="reason-list">
+            {(build.strengths || []).map((s, i) => (
+              <li key={i}>
+                <strong>{s.title}.</strong> {s.detail}
+              </li>
             ))}
           </ul>
         </div>
         <div className="info-block cons">
-          <h3>👎 Inconvenientes</h3>
-          <ul>
-            {build.cons.map((c, i) => (
-              <li key={i}>{c}</li>
+          <h3>⚠️ Puntos flacos</h3>
+          <ul className="reason-list">
+            {(build.weaknesses || []).map((w, i) => (
+              <li key={i}>
+                <strong>{w.title}.</strong> {w.detail}
+              </li>
             ))}
           </ul>
         </div>
       </div>
+
+      {build.tips?.length > 0 && (
+        <div className="info-block tips">
+          <h3>🎯 Consejos para sacarle partido</h3>
+          <ul className="reason-list">
+            {build.tips.map((t, i) => (
+              <li key={i}>{t}</li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       {(build.decorations?.length || build.charm) && (
         <div className="info-block">
@@ -218,6 +241,13 @@ function ProgressionTab({ build }) {
                 )
               })}
             </ul>
+            {phase.tips?.length > 0 && (
+              <ul className="phase-tips">
+                {phase.tips.map((t, ti) => (
+                  <li key={ti}>💡 {t}</li>
+                ))}
+              </ul>
+            )}
           </li>
         ))}
       </ol>
@@ -253,7 +283,10 @@ function WeaponTab({ build }) {
           {imgSrc && (
             <img className="weapon-render" src={imgSrc} alt={w.finalName} loading="lazy" />
           )}
-          <h3>{w.finalName}</h3>
+          <div>
+            <h3>{w.finalName}</h3>
+            {w.finalNameEn && <span className="weapon-en-name">{w.finalNameEn}</span>}
+          </div>
         </div>
         <div className="stat-grid">
           {stats.map((key) => (
@@ -279,6 +312,7 @@ function WeaponTab({ build }) {
             <div className="tree-node-head">
               <span className={`rank-tag rank-${node.rank.toLowerCase()}`}>{node.rank}</span>
               <strong>{node.name}</strong>
+              {node.nameEn && <span className="node-en">{node.nameEn}</span>}
               <span className="node-atk">ATQ {node.attack}</span>
             </div>
             {node.note && <p className="node-note">{node.note}</p>}
