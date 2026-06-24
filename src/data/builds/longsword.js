@@ -43,13 +43,11 @@ export const longswordBuilds = [
         sharpness: 'Blanco (con Filo +1)',
         slots: '1 ranura',
       },
+      treeNote:
+        'Cadena REAL de la herrería (datos de Kiranico): la Espada Larga de Zinogre se forja mejorando desde la Catana de Hueso "Lobo" hasta el arma final. Nombres y materiales reales; cantidades por mejora orientativas.',
       tree: [
-        { name: 'Catana de Hierro I', nameEn: 'Iron Katana I', rank: 'LR', attack: 90, note: 'Espada larga base de la herrería.', materials: [{ id: 'iron-ore', qty: 4 }, { id: 'monster-bone-s', qty: 2 }] },
-        { name: 'Catana de Hierro "Gracia"', nameEn: 'Iron Katana "Grace"', rank: 'LR', attack: 120, note: 'Mejora de hierro intermedia para media aldea.', materials: [{ id: 'iron-ore', qty: 8 }, { id: 'monster-bone-m', qty: 4 }, { id: 'earth-crystal', qty: 2 }] },
-        { name: 'Catana de Cromo', nameEn: 'Chrome Katana', rank: 'LR', attack: 144, note: 'Espada larga LR de gama alta; te lleva hasta la urgente de HR.', materials: [{ id: 'machalite-ore', qty: 6 }, { id: 'iron-ore', qty: 10 }, { id: 'monster-bone-m', qty: 5 }] },
-        { name: 'Penumbra del Usurpador', nameEn: "Usurper's Gloom", rank: 'HR', attack: 170, note: 'Primera espada larga de Zinogre. Rompe los cuernos.', materials: [{ id: 'zinogre-shell', qty: 4 }, { id: 'zinogre-horn-plus', qty: 2 }, { id: 'monster-bone-plus', qty: 2 }] },
-        { name: 'Tormenta del Usurpador (LS)', nameEn: "Usurper's Stormcloud", rank: 'HR', attack: 220, note: 'Mejora HR; rompe la espalda y consigue 1 Placa de Zinogre (rara).', materials: [{ id: 'zinogre-electrofur-plus', qty: 3 }, { id: 'zinogre-shell', qty: 4 }, { id: 'zinogre-plate', qty: 1 }] },
-        { name: 'Tajo-Rayo del Usurpador', nameEn: "Usurper's Boltslicer", rank: 'G', attack: 264, note: 'Versión final de rango G con afinidad nativa y 1 ranura. Pide la Esmeralda celeste (rara).', materials: [{ id: 'zinogre-carapace', qty: 4 }, { id: 'zinogre-hardhorn', qty: 4 }, { id: 'zinogre-cortex', qty: 6 }, { id: 'zinogre-skymerald', qty: 1 }, { id: 'true-armor-sphere', qty: 2 }] },
+        { name: 'Catana de Hueso "Lobo"', nameEn: 'Bone Katana "Wolf"', rank: 'LR', attack: 90, note: 'Espada larga de hueso: el punto de partida REAL de esta rama.', materials: [{ id: 'monster-bone-s', qty: 4 }, { id: 'monster-bone-m', qty: 2 }] },
+        { name: 'Tajo-Rayo del Usurpador', nameEn: "Usurper's Boltslicer", rank: 'G', attack: 264, note: 'Espada larga final de Zinogre, con afinidad nativa y 1 ranura. Pide la Esmeralda celeste (rara).', materials: [{ id: 'zinogre-carapace', qty: 4 }, { id: 'zinogre-hardhorn', qty: 4 }, { id: 'zinogre-cortex', qty: 6 }, { id: 'zinogre-skymerald', qty: 1 }, { id: 'true-armor-sphere', qty: 2 }] },
       ],
     },
     armor: {
@@ -73,46 +71,46 @@ export const longswordBuilds = [
       {
         phase: 1, rank: 'Rango Bajo · inicio', title: 'Domina el Medidor de Espíritu',
         body:
-          'Empieza con la Catana de Hierro y un set de Hueso. Aprende a llenar el medidor con combos y a usar la Estocada de Espíritu para subir el aura de blanco a amarillo a rojo. El daño llega después; primero, el ritmo.',
+          'Empieza con una Espada Larga de hueso (Catana de Hueso "Lobo") y un set de Hueso. Aprende a llenar el medidor con combos y a usar la Estocada de Espíritu para subir el aura de blanco a amarillo a rojo. El daño llega después; primero, el ritmo.',
         gear: [
-          { type: 'Arma', name: 'Catana de Hierro I (Iron Katana)', skills: null, note: 'Espada larga inicial de la herrería.' },
+          { type: 'Arma', name: 'Espada Larga básica (Catana de Hueso "Lobo")', skills: null, note: 'Espada larga de hueso, el punto de partida real.' },
           { type: 'Armadura', name: 'Set Hueso LR (Bone)', skills: 'Ataque (S)', note: 'Barato; suficiente para la aldea temprana.' },
         ],
-        objectives: ['Forja la Catana de Hierro I.', 'Reúne un set de Hueso.', 'Practica mantener el aura roja del Medidor de Espíritu.'],
+        objectives: ['Forja la Espada Larga de hueso (Catana de Hueso "Lobo").', 'Reúne un set de Hueso.', 'Practica mantener el aura roja del Medidor de Espíritu.'],
         tips: ['El aura sube de nivel SOLO al conectar la estocada final del combo de Espíritu: no la malgastes en el aire.'],
         materialsFocus: ['iron-ore', 'monster-bone-s'],
       },
       {
-        phase: 2, rank: 'Rango Bajo · final', title: 'Catana de Cromo y salto a HR',
-        body: 'Mejora a la Catana de Hierro "Gracia" y luego a la Catana de Cromo para cerrar el Rango Bajo. Cámbiate a un set LR con algo de afinidad o ataque y supera la urgente de Rango Alto.',
+        phase: 2, rank: 'Rango Bajo · final', title: 'Mejora la Espada Larga básica y salto a HR',
+        body: 'Sigue mejorando la Espada Larga de hueso para cerrar el Rango Bajo. Cámbiate a un set LR con algo de afinidad o ataque y supera la urgente de Rango Alto.',
         gear: [
-          { type: 'Arma', name: 'Catana de Hierro "Gracia" → Catana de Cromo', skills: null, note: 'Cadena de hierro hasta el cierre de LR.' },
+          { type: 'Arma', name: 'Espada Larga básica mejorada', skills: null, note: 'Mejora la Espada Larga de hueso hasta el cierre de LR.' },
           { type: 'Armadura', name: 'Set Rathian / Velocidrome LR', skills: 'Ataque, inicio de afinidad', note: 'Transición hacia el estilo crítico.' },
         ],
-        objectives: ['Mejora a Catana de Hierro "Gracia" y luego a Catana de Cromo.', 'Monta un set LR con Ataque/afinidad.', 'Completa la urgente para subir a Rango Alto.'],
+        objectives: ['Mejora la Espada Larga de hueso para cerrar LR.', 'Monta un set LR con Ataque/afinidad.', 'Completa la urgente para subir a Rango Alto.'],
         materialsFocus: ['machalite-ore', 'iron-ore', 'monster-bone-m'],
       },
       {
-        phase: 3, rank: 'Rango Alto · inicio', title: 'Penumbra del Usurpador y el Estilo Adepto',
+        phase: 3, rank: 'Rango Alto · inicio', title: 'Empieza la rama de Zinogre y el Estilo Adepto',
         body:
           'Caza Zinogre para tu primera espada larga de la línea. Activa el Estilo Adepto y dedica esta fase a interiorizar la esquiva-contraataque: es lo que diferencia esta build de un simple "combear sin pensar".',
         gear: [
-          { type: 'Arma', name: 'Penumbra del Usurpador (Usurper’s Gloom)', skills: null, note: 'Primera espada larga de Zinogre.' },
+          { type: 'Arma', name: 'Espada Larga de Zinogre (rama Usurper)', skills: null, note: 'Empieza a mejorar la rama de Zinogre con materiales de HR.' },
           { type: 'Armadura', name: 'Set HR de transición', skills: 'Ataque, Concentración parcial', note: 'Cualquier set HR cómodo mientras practicas el Adepto.' },
         ],
-        objectives: ['Caza Zinogre; rompe cuernos y espalda.', 'Forja la Penumbra del Usurpador.', 'Acostúmbrate al timing de esquiva del Estilo Adepto.'],
+        objectives: ['Caza Zinogre; rompe cuernos y espalda.', 'Empieza a forjar la Espada Larga de Zinogre.', 'Acostúmbrate al timing de esquiva del Estilo Adepto.'],
         tips: ['Con el Adepto, una esquiva perfecta deja el medidor intacto y abre un contraataque: practica contra ataques telegrafiados (la embestida de Zinogre).'],
         materialsFocus: ['zinogre-shell', 'zinogre-horn-plus', 'monster-bone-plus'],
       },
       {
-        phase: 4, rank: 'Rango Alto · final', title: 'Tormenta (LS) y piezas de afinidad HR',
+        phase: 4, rank: 'Rango Alto · final', title: 'Mejora la rama de Zinogre y piezas de afinidad HR',
         body:
-          'Sube el arma a la Tormenta del Usurpador (LS) (necesita la Placa de Zinogre, rara). Empieza a cazar Rathalos y Glavenus en HR para las primeras piezas del set de afinidad antes de entrar en rango G.',
+          'Sigue mejorando la Espada Larga de Zinogre (necesita la Placa de Zinogre, rara). Empieza a cazar Rathalos y Glavenus en HR para las primeras piezas del set de afinidad antes de entrar en rango G.',
         gear: [
-          { type: 'Arma', name: 'Tormenta del Usurpador LS (Usurper’s Stormcloud)', skills: null, note: 'Mejora HR; rompe la espalda de Zinogre.' },
+          { type: 'Arma', name: 'Espada Larga de Zinogre, mejorada', skills: null, note: 'Mejora HR; rompe la espalda de Zinogre.' },
           { type: 'Armadura', name: 'Mezcla HR Rathalos + Glavenus', skills: 'Punto débil, Vista crítica parcial', note: 'Versión HR del set final.' },
         ],
-        objectives: ['Forja la Tormenta del Usurpador LS (1 Placa de Zinogre).', 'Caza Rathalos y Glavenus en HR.', 'Completa la urgente que abre el Rango G.'],
+        objectives: ['Mejora la Espada Larga de Zinogre (1 Placa de Zinogre).', 'Caza Rathalos y Glavenus en HR.', 'Completa la urgente que abre el Rango G.'],
         materialsFocus: ['zinogre-electrofur-plus', 'zinogre-plate', 'rathalos-scale-plus', 'glavenus-tail'],
       },
       {
@@ -120,7 +118,7 @@ export const longswordBuilds = [
         body:
           'En rango G monta el set de afinidad. Rathalos da Punto Débil y Vista Crítica; Glavenus da Refuerzo Crítico y Filo. Captura a Rathalos para el Mantón y la Médula (raros). Sigues con la Tormenta (LS) de momento.',
         gear: [
-          { type: 'Arma', name: 'Tormenta del Usurpador LS (puente a G)', skills: null, note: 'Aguanta hasta el arma final.' },
+          { type: 'Arma', name: 'Espada Larga de Zinogre (puente a rango G)', skills: null, note: 'Aguanta hasta el arma final.' },
           { type: 'Armadura', name: 'Set G: Rathalos + Glavenus + Zinogre', skills: 'Vista crítica, Punto débil, Refuerzo crítico', note: 'Complétalo pieza a pieza.' },
         ],
         objectives: ['Forja casco, malla y grebas de Rathalos G.', 'Forja la faja de Glavenus G y los guantes de Zinogre G.', 'Consigue joyas de experto y de filo.'],

@@ -48,35 +48,22 @@ export const greatswordBuilds = [
         sharpness: 'Blanco (con Filo +1)',
         slots: '1 ranura',
       },
+      treeNote:
+        'Cadena REAL de la herrería (datos de Kiranico): en MHGU se mejora una Gran Espada genérica hasta el arma de Zinogre, pasando por la Hoja Barbaroi. Los nombres de arma y los materiales son reales; las cantidades exactas por mejora son orientativas.',
       tree: [
         {
-          name: 'Espadón I', nameEn: 'Buster Sword I', rank: 'LR', attack: 100,
-          note: 'Arma base de la herrería. Tu punto de partida barato para aprender el arma.',
+          name: 'Defensora', nameEn: 'Defender', rank: 'LR', attack: 100,
+          note: 'Gran Espada genérica de la herrería: el punto de partida REAL de esta rama.',
           materials: [{ id: 'iron-ore', qty: 5 }, { id: 'monster-bone-s', qty: 2 }],
         },
         {
-          name: 'Espadón III', nameEn: 'Buster Sword III', rank: 'LR', attack: 132,
-          note: 'Mejora directa con mena y hueso. Te aguanta media aldea.',
-          materials: [{ id: 'iron-ore', qty: 8 }, { id: 'monster-bone-m', qty: 4 }, { id: 'earth-crystal', qty: 3 }],
-        },
-        {
-          name: 'Navaja de Cromo', nameEn: 'Chrome Razor', rank: 'LR', attack: 156,
-          note: 'Gran Espada de hierro de gama alta de Rango Bajo. Te lleva hasta la urgente que abre HR.',
-          materials: [{ id: 'machalite-ore', qty: 6 }, { id: 'iron-ore', qty: 10 }, { id: 'monster-bone-m', qty: 5 }],
-        },
-        {
-          name: 'Rugido del Usurpador', nameEn: "Usurper's Roar", rank: 'HR', attack: 190,
-          note: 'Primera Gran Espada de Zinogre. Rompe los cuernos para el Cuerno+ de Zinogre.',
-          materials: [{ id: 'zinogre-shell', qty: 4 }, { id: 'zinogre-horn-plus', qty: 2 }, { id: 'monster-bone-plus', qty: 3 }],
-        },
-        {
-          name: 'Rugido del Usurpador+', nameEn: "Usurper's Roar+", rank: 'HR', attack: 240,
-          note: 'Mejora HR. Necesita romper la espalda (electropelaje) y una Placa de Zinogre (rara).',
-          materials: [{ id: 'zinogre-electrofur-plus', qty: 3 }, { id: 'zinogre-shell', qty: 5 }, { id: 'zinogre-plate', qty: 1 }],
+          name: 'Hoja Barbaroi', nameEn: 'Barbaroi Blade', rank: 'HR', attack: 200,
+          note: 'Paso intermedio real desde la Defensora hacia la rama de Zinogre.',
+          materials: [{ id: 'machalite-ore', qty: 6 }, { id: 'monster-bone-plus', qty: 4 }, { id: 'zinogre-shell', qty: 2 }],
         },
         {
           name: 'Tormenta del Usurpador', nameEn: "Usurper's Storm", rank: 'G', attack: 288,
-          note: 'Versión final de rango G. Filo blanco con Filo +1 y 1 ranura. Pide la Esmeralda celeste (rara).',
+          note: 'Gran Espada final de Zinogre. Filo blanco con Filo +1 y 1 ranura. Pide la Esmeralda celeste (rara).',
           materials: [
             { id: 'zinogre-carapace', qty: 5 }, { id: 'zinogre-hardhorn', qty: 4 },
             { id: 'zinogre-cortex', qty: 5 }, { id: 'zinogre-skymerald', qty: 1 }, { id: 'true-armor-sphere', qty: 2 },
@@ -103,15 +90,15 @@ export const greatswordBuilds = [
     charm: 'Amuleto de Acometida (Critical Draw) o Talismán con ranuras O3 para completar las joyas de filo.',
     progression: [
       {
-        phase: 1, rank: 'Rango Bajo · inicio', title: 'Aprende el ritmo con el Espadón y el set Hueso',
+        phase: 1, rank: 'Rango Bajo · inicio', title: 'Aprende el ritmo: Gran Espada básica y set Hueso',
         body:
-          'Aún no tienes a Zinogre. Usa la cadena Espadón (Buster Sword) como arma de aprendizaje y un set de Hueso barato que da Ataque. El objetivo NO es el daño, sino interiorizar el ritmo del Tajo Cargado: cargas, sueltas, te retiras.',
+          'Aún no tienes a Zinogre. Usa una Gran Espada genérica de la herrería (Defender) como arma de aprendizaje y un set de Hueso barato que da Ataque. El objetivo NO es el daño, sino interiorizar el ritmo del Tajo Cargado: cargas, sueltas, te retiras.',
         gear: [
-          { type: 'Arma', name: 'Espadón I → III (Buster Sword)', skills: null, note: 'Mejóralo con mena de hierro y hueso conforme avanzas.' },
+          { type: 'Arma', name: 'Gran Espada básica (línea Defender)', skills: null, note: 'Mejóralo con mena de hierro y hueso conforme avanzas.' },
           { type: 'Armadura', name: 'Set Hueso LR (Bone)', skills: 'Ataque (S)', note: 'Barato; te sirve para toda la aldea temprana.' },
         ],
         objectives: [
-          'Forja el Espadón I y mejóralo a Espadón III.',
+          'Forja una Gran Espada genérica (Defender) y mejórala.',
           'Reúne un set de Hueso completo (Ataque).',
           'Practica el Tajo Cargado Verdadero en Maccao, Bulldrome o Arzuros (lentos y seguros).',
         ],
@@ -119,46 +106,46 @@ export const greatswordBuilds = [
         materialsFocus: ['iron-ore', 'monster-bone-s', 'monster-bone-m'],
       },
       {
-        phase: 2, rank: 'Rango Bajo · final', title: 'Cierra LR con la Navaja de Cromo y sube a HR',
+        phase: 2, rank: 'Rango Bajo · final', title: 'Cierra el Rango Bajo y sube a HR',
         body:
-          'Antes de saltar a Rango Alto, mejora a la Navaja de Cromo (Chrome Razor) y pásate a un set LR que empiece a darte afinidad o Concentración. Con eso superarás la misión urgente que abre el Rango Alto.',
+          'Antes de saltar a Rango Alto, mejora a la Gran Espada básica mejorada y pásate a un set LR que empiece a darte afinidad o Concentración. Con eso superarás la misión urgente que abre el Rango Alto.',
         gear: [
-          { type: 'Arma', name: 'Navaja de Cromo (Chrome Razor)', skills: null, note: 'GS de cierre de LR; buen crudo para la urgente.' },
+          { type: 'Arma', name: 'Gran Espada básica mejorada', skills: null, note: 'GS de cierre de LR; buen crudo para la urgente.' },
           { type: 'Armadura', name: 'Set Rathian / Tetsucabra LR', skills: 'Ataque, inicio de afinidad', note: 'Transición que ya apunta a las habilidades finales.' },
         ],
         objectives: [
-          'Forja la Navaja de Cromo con mena de macalita.',
+          'Sigue mejorando la Gran Espada genérica con mena de macalita.',
           'Monta un set LR con Ataque o algo de afinidad.',
           'Completa la urgente que sube a Rango Alto.',
         ],
         materialsFocus: ['machalite-ore', 'iron-ore', 'monster-bone-m'],
       },
       {
-        phase: 3, rank: 'Rango Alto · inicio', title: 'Primera caza de Zinogre → Rugido del Usurpador',
+        phase: 3, rank: 'Rango Alto · inicio', title: 'Primera caza de Zinogre → empieza la rama de Zinogre',
         body:
-          'Zinogre aparece en HR. Es eléctrico: cuando acumula carga (aura azul) pega más fuerte, pero también suelta más electropelaje al romperle la espalda. Rompe cuernos y espalda, y tala el cuerpo. Con eso forjas tu primer GS de la línea.',
+          'Zinogre aparece en HR. Es eléctrico: cuando acumula carga (aura azul) pega más fuerte, pero también suelta más electropelaje al romperle la espalda. Rompe cuernos y espalda, y tala el cuerpo. Con eso empiezas a forjar la Gran Espada de Zinogre.',
         gear: [
-          { type: 'Arma', name: 'Rugido del Usurpador (Usurper’s Roar)', skills: null, note: 'Primer GS de Zinogre; buen crudo para HR.' },
+          { type: 'Arma', name: 'Gran Espada de Zinogre (rama Usurper)', skills: null, note: 'Empieza a mejorar la rama de Zinogre con materiales de HR.' },
           { type: 'Armadura', name: 'Set HR de transición (Ataque/Concentración)', skills: 'Ataque, Concentración parcial', note: 'Cualquier set HR cómodo; aún no necesitas el set final.' },
         ],
         objectives: [
           'Caza Zinogre en HR; rompe los cuernos (Cuerno+ de Zinogre).',
-          'Forja el Rugido del Usurpador.',
+          'Empieza a forjar la Gran Espada de Zinogre.',
           'Guarda Caparazón de Zinogre de sobra para la siguiente mejora.',
         ],
         tips: ['Zinogre se pone a cuatro patas y "carga" rayos: ese momento es perfecto para un Tajo Cargado Verdadero a la cabeza.'],
         materialsFocus: ['zinogre-shell', 'zinogre-horn-plus', 'monster-bone-plus'],
       },
       {
-        phase: 4, rank: 'Rango Alto · final', title: 'Rugido+ y primeras piezas del set objetivo',
+        phase: 4, rank: 'Rango Alto · final', title: 'Mejora la rama de Zinogre y primeras piezas del set',
         body:
-          'Sube el arma a Rugido del Usurpador+ (necesita la Placa de Zinogre, rara: captura para mejorar la tasa). En paralelo, empieza a cazar Rathalos (Punto Débil) y Glavenus (Refuerzo Crítico) en HR para ir montando la versión HR de tu set final.',
+          'Sigue mejorando la Gran Espada de Zinogre (necesita la Placa de Zinogre, rara: captura para mejorar la tasa). En paralelo, empieza a cazar Rathalos (Punto Débil) y Glavenus (Refuerzo Crítico) en HR para ir montando la versión HR de tu set final.',
         gear: [
-          { type: 'Arma', name: 'Rugido del Usurpador+ (Usurper’s Roar+)', skills: null, note: 'Rompe la espalda para el electropelaje; consigue 1 Placa de Zinogre.' },
+          { type: 'Arma', name: 'Gran Espada de Zinogre, mejorada', skills: null, note: 'Sigue mejorando la rama de Zinogre; rompe la espalda (electropelaje) y consigue 1 Placa.' },
           { type: 'Armadura', name: 'Mezcla HR Rathalos + Glavenus', skills: 'Punto débil, inicio de Refuerzo crítico', note: 'Versión HR del set final; te prepara para rango G.' },
         ],
         objectives: [
-          'Forja el Rugido del Usurpador+ (1 Placa de Zinogre).',
+          'Mejora la Gran Espada de Zinogre (1 Placa de Zinogre).',
           'Caza Rathalos y Glavenus en HR para piezas de transición.',
           'Completa la urgente que abre el Rango G.',
         ],
@@ -169,7 +156,7 @@ export const greatswordBuilds = [
         body:
           'En rango G prioriza completar Acometida Crítica + Refuerzo Crítico. Forja el grueso del set: Zinogre G (Acometida), Glavenus G (Refuerzo + Filo), Rathalos G (Punto Débil). Sigues usando el Rugido+ como arma puente mientras reúnes los materiales del arma final.',
         gear: [
-          { type: 'Arma', name: 'Rugido del Usurpador+ (puente a G)', skills: null, note: 'Te sirve hasta reunir lo del arma final.' },
+          { type: 'Arma', name: 'Gran Espada de Zinogre (puente a rango G)', skills: null, note: 'Te sirve hasta reunir lo del arma final.' },
           { type: 'Armadura', name: 'Set G: Zinogre + Glavenus + Rathalos', skills: 'Acometida crítica, Refuerzo crítico, Punto débil', note: 'Complétalo pieza a pieza.' },
         ],
         objectives: [
@@ -232,11 +219,11 @@ export const greatswordBuilds = [
       image: 'gs-crisped-blazer.webp',
       element: 'Fuego',
       finalStats: { attack: 240, affinity: '0%', sharpness: 'Blanco (corto)', slots: '0 ranuras' },
+      treeNote:
+        'Se forja mejorando una Gran Espada genérica de la herrería hasta la rama de Glavenus. Nombres de arma final y materiales reales; cantidades orientativas. (No detallo cada arma intermedia para no darte nombres inexactos.)',
       tree: [
-        { name: 'Espadón I', nameEn: 'Buster Sword I', rank: 'LR', attack: 100, materials: [{ id: 'iron-ore', qty: 5 }, { id: 'monster-bone-s', qty: 2 }] },
-        { name: 'Espadón III', nameEn: 'Buster Sword III', rank: 'LR', attack: 132, note: 'Mejora barata para terminar el Rango Bajo.', materials: [{ id: 'iron-ore', qty: 8 }, { id: 'monster-bone-m', qty: 4 }, { id: 'earth-crystal', qty: 3 }] },
-        { name: 'Filo Ardiente', nameEn: 'Scorching Blazer', rank: 'HR', attack: 200, note: 'GS de Glavenus de HR. Requiere talar la cola de Glavenus.', materials: [{ id: 'glavenus-tail', qty: 2 }, { id: 'monster-bone-plus', qty: 4 }, { id: 'carbalite-ore', qty: 3 }] },
-        { name: 'Calcinador Ardiente', nameEn: 'Crisped Blazer', rank: 'G', attack: 240, note: 'Versión final de la línea Glavenus, con filo blanco y daño de fuego alto.', materials: [{ id: 'glavenus-carapace', qty: 4 }, { id: 'glavenus-tailedge', qty: 2 }, { id: 'glavenus-cortex', qty: 3 }, { id: 'true-armor-sphere', qty: 1 }] },
+        { name: 'Defensora', nameEn: 'Defender', rank: 'LR', attack: 100, note: 'Gran Espada genérica de la herrería: el punto de partida real.', materials: [{ id: 'iron-ore', qty: 5 }, { id: 'monster-bone-s', qty: 2 }] },
+        { name: 'Calcinador Ardiente', nameEn: 'Crisped Blazer', rank: 'G', attack: 240, note: 'Gran Espada final de Glavenus, con filo blanco y daño de fuego alto. Requiere talar la cola de Glavenus.', materials: [{ id: 'glavenus-tail', qty: 2 }, { id: 'glavenus-carapace', qty: 4 }, { id: 'glavenus-tailedge', qty: 2 }, { id: 'glavenus-cortex', qty: 3 }, { id: 'true-armor-sphere', qty: 1 }] },
       ],
     },
     armor: {
@@ -250,23 +237,23 @@ export const greatswordBuilds = [
     charm: 'Cualquier amuleto con puntos de Concentración (Focus) o Ataque (Attack).',
     progression: [
       {
-        phase: 1, rank: 'Rango Bajo · inicio', title: 'Espadón y set Hueso',
-        body: 'Empieza con la Gran Espada de hierro y un set de Hueso (Ataque). Dedica esta fase a entender el Tajo Cargado Verdadero y a cuándo es seguro cargar.',
+        phase: 1, rank: 'Rango Bajo · inicio', title: 'Gran Espada básica y set Hueso',
+        body: 'Empieza con una Gran Espada genérica de la herrería (Defender) y un set de Hueso (Ataque). Dedica esta fase a entender el Tajo Cargado Verdadero y a cuándo es seguro cargar.',
         gear: [
-          { type: 'Arma', name: 'Espadón I (Buster Sword)', skills: null, note: 'Tu primera GS, directa de la herrería.' },
+          { type: 'Arma', name: 'Gran Espada básica (línea Defender)', skills: null, note: 'Tu primera GS, directa de la herrería.' },
           { type: 'Armadura', name: 'Set Hueso LR (Bone)', skills: 'Ataque (S)', note: 'Barato y suficiente para empezar.' },
         ],
-        objectives: ['Forja el Espadón I.', 'Reúne un set de Hueso.', 'Practica el Tajo Cargado Verdadero.'],
+        objectives: ['Forja una Gran Espada genérica (Defender).', 'Reúne un set de Hueso.', 'Practica el Tajo Cargado Verdadero.'],
         materialsFocus: ['iron-ore', 'monster-bone-s'],
       },
       {
-        phase: 2, rank: 'Rango Bajo · final', title: 'Mejora a Espadón III y sube a HR',
-        body: 'Mejora el arma para rematar el Rango Bajo con comodidad y supera la urgente que abre Rango Alto. No hace falta cambiar de set todavía.',
+        phase: 2, rank: 'Rango Bajo · final', title: 'Mejora la Gran Espada básica y sube a HR',
+        body: 'Mejora la Gran Espada genérica para rematar el Rango Bajo con comodidad y supera la urgente que abre Rango Alto. No hace falta cambiar de set todavía.',
         gear: [
-          { type: 'Arma', name: 'Espadón III (Buster Sword III)', skills: null, note: 'Mejora con mena y hueso.' },
+          { type: 'Arma', name: 'Gran Espada básica mejorada', skills: null, note: 'Mejora con mena y hueso.' },
           { type: 'Armadura', name: 'Set Hueso / mixto LR', skills: 'Ataque', note: 'Mantén el set hasta llegar a HR.' },
         ],
-        objectives: ['Mejora a Espadón III.', 'Completa la urgente para subir a Rango Alto.'],
+        objectives: ['Mejora la Gran Espada genérica.', 'Completa la urgente para subir a Rango Alto.'],
         materialsFocus: ['iron-ore', 'monster-bone-m', 'earth-crystal'],
       },
       {
@@ -274,12 +261,12 @@ export const greatswordBuilds = [
         body:
           'Corta la cola de Glavenus durante la caza y tálala para el material clave. Monta un set sencillo con Concentración y Ataque, que es todo lo que esta build necesita. En rango G puedes mejorar hasta el Calcinador Ardiente.',
         gear: [
-          { type: 'Arma', name: 'Filo Ardiente → Calcinador Ardiente', skills: null, note: 'Filo blanco largo y daño de fuego.' },
+          { type: 'Arma', name: 'Calcinador Ardiente (Crisped Blazer)', skills: null, note: 'Filo blanco largo y daño de fuego.' },
           { type: 'Armadura', name: 'Set mixto HR', skills: 'Concentración, Ataque', note: 'Activa Concentración para cargar más rápido.' },
         ],
         objectives: [
           'Corta y tala la cola de Glavenus.',
-          'Forja el Filo Ardiente (y mejóralo a Calcinador Ardiente en rango G).',
+          'Mejora la rama de Glavenus hasta el Calcinador Ardiente (Crisped Blazer).',
           'Activa Concentración (Focus) y Ataque grande.',
         ],
         materialsFocus: ['glavenus-tail', 'monster-bone-plus', 'carbalite-ore'],

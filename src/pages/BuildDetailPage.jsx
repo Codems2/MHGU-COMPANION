@@ -306,6 +306,7 @@ function WeaponTab({ build }) {
       </div>
 
       <h3 className="section-title">Árbol de mejora</h3>
+      {w.treeNote && <p className="tree-note-box">ℹ️ {w.treeNote}</p>}
       <ol className="upgrade-tree">
         {w.tree.map((node, i) => (
           <li key={i} className="tree-node">
